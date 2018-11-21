@@ -1,8 +1,11 @@
-$('#save_lincoln').click(()=>saveLincoln(parseInt($('#interval').val())))
+const button = document.getElementById('save_lincoln')
+const image = document.getElementById('foreground')
 
-function saveLincoln(interval) {
-  if(isNaN(interval)) {
-    interval = 10000
-  }
-  $('#foreground').fadeOut(interval);
-}
+
+button.addEventListener('click', e =>{
+  const input = document.getElementById('interval')
+  secs = input.value / 1000
+  image.style.transitionDuration = `${secs}s`
+  image.style.opacity = 0  
+})
+
